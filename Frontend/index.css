@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#bg-img{
+    background-image: url(./images/ioann-mark-kuznietsov-gtCWBwbZNpM-unsplash.jpg);
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.chat-container {
+    width: 50%;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 600px;
+    background-color: white;
+    margin-top:60px;
+}
+
+.chat-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.chat-messages {
+    padding: 10px;
+    /* max-height: 300px; */
+    width: 95%;
+    height: 480px;
+    margin: auto;
+    overflow-y: auto;
+    background-color: #f4f4f4;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#send-button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.message {
+    margin: 10px;
+    clear: both;
+}
+
+.user .message-content {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    float: left;
+}
+
+.bot .message-content {
+    background-color: #70e205;
+    color: #333;
+    border-radius: 5px;
+    padding: 10px;
+    float: right;
+    margin-left: 80px;
+}
+
+/* Clearfix for floated elements */
+.message:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.dot-loader {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot-loader::after {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+    border-top: 3px solid transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
