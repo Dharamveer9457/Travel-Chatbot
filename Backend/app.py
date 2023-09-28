@@ -1,14 +1,18 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import openai
+import os
+
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv())
+
 
 app = Flask(__name__)
 
 # Enable CORS for specific origins (replace with your frontend domains)
 CORS(app, resources={r"/chat": {"origins": ["http://127.0.0.1:5500"]}})
 
-# Initialize the OpenAI API client
-openai.api_key = "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"
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 @app.route('/chat', methods=['POST'])
 def chatbot():
@@ -17,7 +21,7 @@ def chatbot():
         messages = data['messages']
 
         user_message = messages[-1]['content'].lower()
-        is_travel_related = any(keyword in user_message for keyword in ['travel', 'trip', 'vacation', 'hotel', 'destination', 'places', 'go'])
+        is_travel_related = any(keyword in user_message for keyword in ['travel', 'trip', 'vacation', 'hotel', 'destination', 'places', 'go', 'stay'])
 
         is_greeting = any(greeting in user_message for greeting in ['hii', 'hello', 'namaste', 'hey'])
 
